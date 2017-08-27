@@ -18,7 +18,7 @@ function draw() {
   background(255);
   for (var i = 0; i < grid.length; i++) {
     for (var j = 0; j < grid[0].length; j++) {
-      grid[i][j].show();
+      grid[i][j].show(i, j);
     }
   }
 }
