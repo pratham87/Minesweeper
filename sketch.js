@@ -14,6 +14,14 @@ function setup() {
   }
 }
 
+function create2DArray(rows, cols) {
+  var arr = new Array(rows);
+  for (var i = 0; i < rows; i++) {
+    arr[i] = new Array(cols);
+  }
+  return arr;
+}
+
 function draw() {
   background(255);
   for (var i = 0; i < grid.length; i++) {
@@ -23,10 +31,12 @@ function draw() {
   }
 }
 
-function create2DArray(rows, cols) {
-  var arr = new Array(rows);
+function mousePressed() {
   for (var i = 0; i < rows; i++) {
-    arr[i] = new Array(cols);
+    for (var j = 0; j < cols; j++) {
+      if (grid[i][j].contains(mouseX, mouseY)) {
+        grid[i][j].reveal();
+      }
+    }
   }
-  return arr;
 }
