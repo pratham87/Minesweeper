@@ -9,4 +9,4 @@
 * Cell count:
   * Default count = 0.
   * Every bee will add 1 to its neighbor.
-  * That way we only iterate for the bee neighbors and not every cell in the grid.
+  * That way we only iterate on the bee neighbors and not every cell in the grid.

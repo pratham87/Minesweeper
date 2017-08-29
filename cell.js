@@ -5,12 +5,12 @@ function Cell(i, j, w) {
   this.y = j * w;
   this.w = w;
 
-  if (random(1) < 0.4) {
+  if (random(1) < 0.1) {
     this.bee = true;
   } else {
     this.bee = false;
   }
-  this.revealed = false;
+  this.revealed = true;
 
   this.count = 0;
 }
@@ -30,12 +30,22 @@ Cell.prototype.show = function(i, j) {
   rect(this.x, this.y, this.w, this.w);
 
   if (this.bee && this.revealed) {
-    stroke(0);
+    //stroke(0);
     strokeWeight(1);
     fill(255, 0, 0);
+    rect(this.x, this.y, this.w, this.w);
+
+    stroke(0);
+    strokeWeight(1);
+    fill(0);
     ellipse(this.x + w / 2, this.y + w / 2, w / 2);
   } else if (this.revealed) {
-    fill(200);
+    stroke(0);
+    strokeWeight(0);
+    fill(255);
+    rect(this.x, this.y, this.w, this.w);
+
+    fill(0);
     textAlign(CENTER);
     text(this.count, this.x + this.w * 0.5, this.y + this.w - 10);
   }

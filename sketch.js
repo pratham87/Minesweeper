@@ -14,49 +14,16 @@ function setup() {
   }
 
   // Every bee will add 1 to its neighbor.
-  //That way we only iterate for the bee neighbors and not every cell in the grid.
+  //That way we only iterate on the bee neighbors and not every cell in the grid.
   for (var i = 0; i < grid.length; i++) {
     for (var j = 0; j < grid[0].length; j++) {
       if (grid[i][j].bee) {
-
-        //Right
-        if (isValid(i + 1, j) && !grid[i + 1][j].bee) {
-          grid[i + 1][j].setCount(grid[i + 1][j].getCount() + 1);
-        }
-
-        //left
-        if (isValid(i - 1, j) && !grid[i - 1][j].bee) {
-          grid[i - 1][j].setCount(grid[i - 1][j].getCount() + 1);
-        }
-
-        //bottom
-        if (isValid(i, j + 1) && !grid[i][j + 1].bee) {
-          grid[i][j + 1].setCount(grid[i][j + 1].getCount() + 1);
-        }
-
-        //bottom left
-        if (isValid(i - 1, j + 1) && !grid[i - 1][j + 1].bee) {
-          grid[i - 1][j + 1].setCount(grid[i - 1][j + 1].getCount() + 1);
-        }
-
-        //bottom right
-        if (isValid(i + 1, j + 1) && !grid[i + 1][j + 1].bee) {
-          grid[i + 1][j + 1].setCount(grid[i + 1][j + 1].getCount() + 1);
-        }
-
-        //top
-        if (isValid(i, j - 1) && !grid[i][j - 1].bee) {
-          grid[i][j - 1].setCount(grid[i][j - 1].getCount() + 1);
-        }
-
-        //top left
-        if (isValid(i - 1, j - 1) && !grid[i - 1][j - 1].bee) {
-          grid[i - 1][j - 1].setCount(grid[i - 1][j - 1].getCount() + 1);
-        }
-
-        //top right
-        if (isValid(i + 1, j - 1) && !grid[i + 1][j - 1].bee) {
-          grid[i + 1][j - 1].setCount(grid[i + 1][j - 1].getCount() + 1);
+        for (var x = -1; x < 2; x++) {
+          for (var y = -1; y < 2; y++) {
+            if (isValid(i + x, j + y) && !grid[i + x][j + y].bee) {
+              grid[i + x][j + y].setCount(grid[i + x][j + y].getCount() + 1);
+            }
+          }
         }
       }
     }
