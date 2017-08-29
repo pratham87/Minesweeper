@@ -1,14 +1,26 @@
-function Cell(x, y, w) {
-  this.x = x;
-  this.y = y;
+function Cell(i, j, w) {
+  this.i = i;
+  this.j = j;
+  this.x = i * w;
+  this.y = j * w;
   this.w = w;
 
-  if (random(1) < 0.1) {
+  if (random(1) < 0.4) {
     this.bee = true;
   } else {
     this.bee = false;
   }
   this.revealed = false;
+
+  this.count = 0;
+}
+
+Cell.prototype.getCount = function() {
+  return this.count;
+}
+
+Cell.prototype.setCount = function(count) {
+  this.count = count;
 }
 
 Cell.prototype.show = function(i, j) {
@@ -22,6 +34,10 @@ Cell.prototype.show = function(i, j) {
     strokeWeight(1);
     fill(255, 0, 0);
     ellipse(this.x + w / 2, this.y + w / 2, w / 2);
+  } else if (this.revealed) {
+    fill(200);
+    textAlign(CENTER);
+    text(this.count, this.x + this.w * 0.5, this.y + this.w - 10);
   }
 }
 
@@ -31,4 +47,12 @@ Cell.prototype.contains = function(x, y) {
 
 Cell.prototype.reveal = function() {
   this.revealed = true;
+}
+
+Cell.prototype.count = function() {
+  if (this.bee) {
+    return -1;
+  } else {
+
+  }
 }
