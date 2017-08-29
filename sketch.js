@@ -28,7 +28,6 @@ function setup() {
       }
     }
   }
-
 }
 
 function create2DArray(rows, cols) {
@@ -52,7 +51,11 @@ function mousePressed() {
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < cols; j++) {
       if (grid[i][j].contains(mouseX, mouseY)) {
-        grid[i][j].reveal();
+        if (mouseButton == LEFT) {
+          grid[i][j].reveal();
+        } else if (mouseButton == RIGHT) {
+          grid[i][j].flagIt();
+        }
       }
     }
   }
