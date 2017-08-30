@@ -44,13 +44,13 @@ Cell.prototype.show = function(i, j) {
     ellipse(this.x + w / 2, this.y + w / 2, w / 2);
   } else if (this.revealed) {
     if (this.count > 0) {
-      drawRectangle(0, 0, 255, 255, 255, this.x, this.y, this.w, this.w);
+      drawRectangle(0, 1, 255, 255, 255, this.x, this.y, this.w, this.w);
 
       fill(0);
       textAlign(CENTER);
       text(this.count, this.x + this.w * 0.5, this.y + this.w - 10);
     } else {
-      drawRectangle(0, 0, 255, 255, 255, this.x, this.y, this.w, this.w);
+      drawRectangle(0, 1, 255, 255, 255, this.x, this.y, this.w, this.w);
     }
   }
 }
