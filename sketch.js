@@ -2,6 +2,7 @@ var grid;
 var rows = 20;
 var cols = 20;
 var w = 30;
+var gameOver = false;
 
 
 function setup() {
@@ -43,6 +44,12 @@ function draw() {
   for (var i = 0; i < grid.length; i++) {
     for (var j = 0; j < grid[0].length; j++) {
       grid[i][j].show(i, j);
+      if (gameOver) {
+        grid[i][j].reveal();
+        textAlign(LEFT);
+        fill(0);
+        text("Game Over", (rows * w) / 4 + 100, cols + (cols * w) + 30);
+      }
     }
   }
 }
@@ -53,8 +60,9 @@ function mousePressed() {
       if (grid[i][j].contains(mouseX, mouseY)) {
         if (mouseButton == LEFT) {
           if (grid[i][j].getCount() === 0 && !grid[i][j].bee) {
-            //grid[i][j].reveal();
             grid[i][j].floodFill(i, j);
+          } else if (grid[i][j].bee) {
+            gameOver = true;
           } else {
             grid[i][j].reveal();
           }
