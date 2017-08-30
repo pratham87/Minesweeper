@@ -70,6 +70,15 @@ Cell.prototype.show = function(i, j) {
   }
 }
 
+// Cell.prototype.drawShape = function(stroke, strokeWeight, fillV1, fillV2, fillV3, shape) {
+//   if (shape == "rectangle") {
+//
+//   } else if (shapre == "ellipse") {
+//
+//   }
+//
+// }
+
 Cell.prototype.contains = function(x, y) {
   return (x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w);
 }
@@ -82,13 +91,21 @@ Cell.prototype.flagIt = function() {
   this.flag = true;
 }
 
-// Cell.prototype.floodFill = function(i, j) {
-//   //Base case
-//   if (grid[i][j].revealed) {
-//     return;
-//   }
-//
-//   if () {
-//
-//   }
-// }
+Cell.prototype.floodFill = function(i, j) {
+  if (!isValid(i, j) || grid[i][j].revealed) {
+    return;
+  }
+
+  if (grid[i][j].getCount() > 0) {
+    grid[i][j].reveal();
+    return;
+  }
+
+  if (grid[i][j].getCount() == 0) {
+    grid[i][j].reveal();
+    grid[i][j].floodFill(i, j - 1);
+    grid[i][j].floodFill(i, j + 1);
+    grid[i][j].floodFill(i - 1, j);
+    grid[i][j].floodFill(i + 1, j);
+  }
+}

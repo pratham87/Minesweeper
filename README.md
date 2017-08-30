@@ -10,6 +10,6 @@
   * Default count = 0.
   * Every bee will add 1 to its neighbor.
   * That way we only iterate on the bee neighbors and not every cell in the grid.
-* Flood fill: Reveal all empty (value = 0) cells.
+* Flood fill: Reveal all empty (value = 0) cells using recursive [floodFill algorithm](https://en.wikipedia.org/wiki/Flood_fill).
 * Flag: Put a flag with a right click.
 * Game Over: Reveal all bee's or Victory.

@@ -52,7 +52,12 @@ function mousePressed() {
     for (var j = 0; j < cols; j++) {
       if (grid[i][j].contains(mouseX, mouseY)) {
         if (mouseButton == LEFT) {
-          grid[i][j].reveal();
+          if (grid[i][j].getCount() === 0 && !grid[i][j].bee) {
+            //grid[i][j].reveal();
+            grid[i][j].floodFill(i, j);
+          } else {
+            grid[i][j].reveal();
+          }
         } else if (mouseButton == RIGHT) {
           grid[i][j].flagIt();
         }
