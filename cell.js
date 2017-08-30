@@ -24,16 +24,10 @@ Cell.prototype.setCount = function(count) {
 }
 
 Cell.prototype.show = function(i, j) {
-  stroke(0);
-  strokeWeight(3);
-  fill(83, 112, 102);
-  rect(this.x, this.y, this.w, this.w);
+  drawRectangle(0, 3, 83, 112, 102, this.x, this.y, this.w, this.w);
 
   if (this.flag) {
-    stroke(0);
-    strokeWeight(1);
-    fill(255, 184, 0);
-    rect(this.x, this.y, this.w, this.w);
+    drawRectangle(0, 1, 255, 184, 0, this.x, this.y, this.w, this.w);
 
     stroke(0);
     strokeWeight(1);
@@ -42,10 +36,7 @@ Cell.prototype.show = function(i, j) {
   }
 
   if (this.bee && this.revealed) {
-    //stroke(0);
-    strokeWeight(1);
-    fill(255, 0, 0);
-    rect(this.x, this.y, this.w, this.w);
+    drawRectangle(0, 1, 255, 0, 0, this.x, this.y, this.w, this.w);
 
     stroke(0);
     strokeWeight(1);
@@ -53,31 +44,16 @@ Cell.prototype.show = function(i, j) {
     ellipse(this.x + w / 2, this.y + w / 2, w / 2);
   } else if (this.revealed) {
     if (this.count > 0) {
-      stroke(0);
-      strokeWeight(0);
-      fill(255);
-      rect(this.x, this.y, this.w, this.w);
+      drawRectangle(0, 0, 255, 255, 255, this.x, this.y, this.w, this.w);
 
       fill(0);
       textAlign(CENTER);
       text(this.count, this.x + this.w * 0.5, this.y + this.w - 10);
     } else {
-      stroke(0);
-      strokeWeight(0);
-      fill(255);
-      rect(this.x, this.y, this.w, this.w);
+      drawRectangle(0, 0, 255, 255, 255, this.x, this.y, this.w, this.w);
     }
   }
 }
-
-// Cell.prototype.drawShape = function(stroke, strokeWeight, fillV1, fillV2, fillV3, shape) {
-//   if (shape == "rectangle") {
-//
-//   } else if (shapre == "ellipse") {
-//
-//   }
-//
-// }
 
 Cell.prototype.contains = function(x, y) {
   return (x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w);

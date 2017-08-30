@@ -69,3 +69,10 @@ function mousePressed() {
 function isValid(i, j) {
   return (i >= 0 && i < rows && j >= 0 && j < cols);
 }
+
+function drawRectangle(strokeV, strokeWeightV, fillV1, fillV2, fillV3, rx, ry, rw, rh) {
+  stroke(strokeV);
+  strokeWeight(strokeWeightV);
+  fill(fillV1, fillV2, fillV3);
+  rect(rx, ry, rw, rh);
+}
