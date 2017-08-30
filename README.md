@@ -2,7 +2,7 @@
 
 * Create the canvas and the 2D grid.
 * Every ```grid[i][j] = new Cell(location, width)```.
-* Create the bee's and draw them on the canvas.
+* Create the bee's (mine's) and draw them on the canvas.
 * User click and Cell reveal:
   * Iterate through every cell and check if it contains (mouseX, mouseY).
   * If yes then reveal = true (show what the cell contains).
