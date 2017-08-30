@@ -1,4 +1,4 @@
-## Coding Minesweeper walkthrough:
+## Coding Minesweeper walkthrough: [Play here](https://pratham87.github.io/Minesweeper/)
 
 * Create the canvas and the 2D grid.
 * Every ```grid[i][j] = new Cell(location, width)```.
