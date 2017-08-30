@@ -3,6 +3,7 @@ var rows = 20;
 var cols = 20;
 var w = 30;
 var gameOver = false;
+var victory = true;
 
 
 function setup() {
@@ -44,6 +45,9 @@ function draw() {
   for (var i = 0; i < grid.length; i++) {
     for (var j = 0; j < grid[0].length; j++) {
       grid[i][j].show(i, j);
+      if (!grid[i][j].revealed) {
+        victory = false;
+      }
       if (gameOver) {
         grid[i][j].reveal();
         textAlign(LEFT);
@@ -51,6 +55,11 @@ function draw() {
         text("Game Over", (rows * w) / 4 + 100, cols + (cols * w) + 30);
       }
     }
+  }
+  if (victory) {
+    textAlign(LEFT);
+    fill(1);
+    text("Victory", (rows * w) / 4 + 100, cols + (cols * w) + 30);
   }
 }
 
