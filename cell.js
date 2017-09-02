@@ -1,5 +1,5 @@
 function Cell(i, j, w) {
-  this.i = i;
+  this.i = i; // (i, j): index, w: width, (x,y): Pixel location on the html page. 
   this.j = j;
   this.x = i * w;
   this.y = j * w;
